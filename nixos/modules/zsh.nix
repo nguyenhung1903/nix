@@ -62,19 +62,6 @@
       # cat
       cat = "bat";
 
-      # Git
-      gs = "git status";
-      ga = "git add";
-      gaa = "git add --all";
-      gc = "git commit";
-      gcm = "git commit -m";
-      gp = "git push";
-      gpl = "git pull";
-      gd = "git diff";
-      gl = "git log --oneline --graph --decorate";
-      gco = "git checkout";
-      gb = "git branch";
-
       # NixOS
       rebuild = "sudo nixos-rebuild switch";
       rebuild-test = "sudo nixos-rebuild test";
@@ -82,12 +69,6 @@
 
       # System
       update = "sudo nixos-rebuild switch --upgrade";
-
-      # Docker
-      d = "docker";
-      dc = "docker compose";
-      dps = "docker ps";
-      dpa = "docker ps -a";
 
       # Neovim
       v = "nvim";
