@@ -4,32 +4,196 @@
   programs.zsh = {
     enable = true;
 
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      ll = "ls -lah";
-      la = "ls -A";
-      ".." = "cd ..";
-      rebuild = "sudo nixos-rebuild switch";
+    # Command suggestion
+    autosuggestions = {
+      enable = true;
     };
 
+    # Syntax highlighting
+    syntaxHighlighting = {
+      enable = true;
+    };
+
+    # Useful plugins
     interactiveShellInit = ''
-      export EDITOR=nvim
-      export VISUAL=nvim
+      # Use emacs-style key bindings
+      bindkey -e
+
+      # History configuration
+      HISTFILE="$HOME/.zsh_history"
+      HISTSIZE=50000
+      SAVEHIST=50000
+
+      setopt HIST_IGNORE_DUPS
+      setopt HIST_IGNORE_SPACE
+      setopt SHARE_HISTORY
+      setopt APPEND_HISTORY
+      setopt INC_APPEND_HISTORY
+
+      # Better directory navigation
+      setopt AUTO_CD
+      setopt AUTO_PUSHD
+      setopt PUSHD_IGNORE_DUPS
+      setopt PUSHD_SILENT
+
+      # Completion
+      autoload -Uz compinit
+      compinit
+
+      # fzf
+      if command -v fzf >/dev/null 2>&1; then
+        source ${pkgs.fzf}/share/fzf/key-bindings.zsh
+        source ${pkgs.fzf}/share/fzf/completion.zsh
+      fi
+
+      # zoxide
+      if command -v zoxide >/dev/null 2>&1; then
+        eval "$(zoxide init zsh)"
+      fi
     '';
+
+    shellAliases = {
+      # ls
+      ls = "eza";
+      ll = "eza -lah --icons";
+      la = "eza -a --icons";
+      lt = "eza --tree --level=2 --icons";
+
+      # cat
+      cat = "bat";
+
+      # Git
+      gs = "git status";
+      ga = "git add";
+      gaa = "git add --all";
+      gc = "git commit";
+      gcm = "git commit -m";
+      gp = "git push";
+      gpl = "git pull";
+      gd = "git diff";
+      gl = "git log --oneline --graph --decorate";
+      gco = "git checkout";
+      gb = "git branch";
+
+      # NixOS
+      rebuild = "sudo nixos-rebuild switch";
+      rebuild-test = "sudo nixos-rebuild test";
+      rebuild-boot = "sudo nixos-rebuild boot";
+
+      # System
+      update = "sudo nixos-rebuild switch --upgrade";
+
+      # Docker
+      d = "docker";
+      dc = "docker compose";
+      dps = "docker ps";
+      dpa = "docker ps -a";
+
+      # Neovim
+      v = "nvim";
+      vi = "nvim";
+      vim = "nvim";
+    };
   };
+
 
   programs.starship = {
     enable = true;
+
+    settings = {
+      add_newline = false;
+
+      format = "$username$hostname$directory$git_branch$git_status$python$nodejs$rust$golang$docker_context$cmd_duration$line_break$character";
+
+      username = {
+        show_always = true;
+        format = "[$user]($style) ";
+      };
+
+      hostname = {
+        ssh_only = false;
+        format = "[@$hostname]($style) ";
+      };
+
+      directory = {
+        truncation_length = 4;
+        truncate_to_repo = true;
+        style = "bold cyan";
+      };
+
+      git_branch = {
+        symbol = " ";
+        format = "[$symbol$branch]($style) ";
+        style = "bold purple";
+      };
+
+      git_status = {
+        format = "([$all_status$ahead_behind]($style) )";
+        style = "bold red";
+      };
+
+      python = {
+        symbol = " ";
+        format = "[$symbol$virtualenv]($style) ";
+      };
+
+      nodejs = {
+        symbol = " ";
+        format = "[$symbol$version]($style) ";
+      };
+
+      golang = {
+        symbol = " ";
+      };
+
+      rust = {
+        symbol = " ";
+      };
+
+      docker_context = {
+        symbol = " ";
+      };
+
+      cmd_duration = {
+        min_time = 2000;
+        format = "took [$duration]($style) ";
+      };
+
+      character = {
+        success_symbol = "[➜](bold green)";
+        error_symbol = "[➜](bold red)";
+      };
+    };
   };
 
+
   environment.systemPackages = with pkgs; [
-    fzf
-    ripgrep
-    fd
     eza
     bat
+    ripgrep
+    fd
+
+    fzf
+
     zoxide
+
+    git
+
+    jq
+
+    btop
+
+    curl
+    wget
+
+    unzip
+    zip
+
+    neovim
   ];
+
+  users.users.nguyenhung1903.shell = pkgs.zsh;
+
+  users.users.root.shell = pkgs.zsh;
+
 }
