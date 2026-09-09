@@ -74,6 +74,9 @@
       v = "nvim";
       vi = "nvim";
       vim = "nvim";
+      
+      #Lzd
+      lzd = "lazydocker";
     };
   };
 

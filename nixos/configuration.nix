@@ -158,6 +158,7 @@
     gparted
     zip
     unzip
+    lazydocker
 
     # ICON - GNOME
     gnome-tweaks
@@ -225,4 +226,9 @@
 	lidSwitchDocked = "ignore";
   };
 
+
+  # Garbage Collector Setting
+  nix.gc.automatic = true;
+  nix.gc.dates = "daily";
+  nix.gc.options = "--delete-older-than 7d";
 }
