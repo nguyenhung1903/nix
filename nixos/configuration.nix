@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       	./hardware-configuration.nix
 	#./input-method.nix
+    	./modules/zsh.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -135,6 +136,7 @@
     wget
     git
     gh
+    tree
     gcc
     htop
     stow
