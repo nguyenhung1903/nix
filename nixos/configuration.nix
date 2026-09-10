@@ -168,6 +168,8 @@
     
     go
     gopls
+    ntfs3g
+    smartmontools  
   ];
 
   # List packages installed in system profile.

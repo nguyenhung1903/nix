@@ -29,3 +29,15 @@ Login vào github có thể dụng gh
 ```
 gh auth login
 ```
+
+Để fix lỗi mount trên ssd có thể sử dụng các câu lệnh sau:
+```
+sudo ntfsfix /dev/sda1
+```
+
+Sau đó tạo một folder `/mnt/<<Name>>`: 
+```
+# mount thui
+sudo mount -o force /dev/sda1 /mnt/<<Name>>
+```
+
