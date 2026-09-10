@@ -154,6 +154,7 @@
     pavucontrol
     docker-compose
     google-chrome
+    microsoft-edge
     vmware-workstation
     gparted
     zip
