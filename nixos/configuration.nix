@@ -231,4 +231,15 @@
   nix.gc.automatic = true;
   nix.gc.dates = "daily";
   nix.gc.options = "--delete-older-than 7d";
+
+  programs.steam = {
+	enable = true;
+
+	remotePlay.openFirewall = true;
+	dedicatedServer.openFirewall = true;
+	extraCompatPackages = with pkgs; [
+   		 proton-ge-bin
+  	];
+  };
+
 }
