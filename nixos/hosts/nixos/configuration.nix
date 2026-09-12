@@ -128,6 +128,9 @@
   };
 
   virtualisation.vmware.host.enable = true;
+  virtualisation.vmware.guest.enable = true;
+
+
   boot.kernelModules = [ "kvm-intel" ]; 
   
 

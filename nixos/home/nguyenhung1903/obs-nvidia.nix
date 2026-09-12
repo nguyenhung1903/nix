@@ -99,7 +99,7 @@ in
 
         RecType=Standard
         RecFilePath=${recordDir}
-        RecFormat2=mkv
+        RecFormat2=hybrid_mp4
         RecEncoder=obs_nvenc_h264_tex
         RecAudioEncoder=ffmpeg_aac
         RecTracks=1
