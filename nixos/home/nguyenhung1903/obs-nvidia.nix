@@ -9,7 +9,7 @@ let
   # discrete NVIDIA part, there's no cross-vendor equivalent to renderD129).
   gpu = 0;
 
-  recordDir = "${config.home.homeDirectory}/Media/records";
+  recordDir = "${config.home.homeDirectory}/Videos/records";
 
   # Constant quantizer for the recording. Lower cqp = better picture and
   # bigger file; 20 is visually clean, 23 is noticeably smaller, 16 is
@@ -37,6 +37,9 @@ in
       obs-vkcapture
       droidcam-obs
     ];
+    package = pkgs.obs-studio.override {
+      cudaSupport = true;
+    };
   };
 
   # OBS rewrites its profile on exit, so it will clobber these symlinks with
