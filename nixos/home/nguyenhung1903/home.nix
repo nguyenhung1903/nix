@@ -14,6 +14,7 @@
 
   imports = [
     ./obs-nvidia.nix
+    ./zoom.nix
   ];
 
 
