@@ -30,6 +30,12 @@ Login vào github có thể dụng gh
 gh auth login
 ```
 
+Để fix lỗi bị mất authentication thì có thể chạy lệnh này:
+```
+gh auth setup-git
+```
+
+
 Để fix lỗi mount trên ssd có thể sử dụng các câu lệnh sau:
 ```
 sudo ntfsfix /dev/sda1
