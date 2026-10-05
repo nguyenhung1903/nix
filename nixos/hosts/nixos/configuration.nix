@@ -136,6 +136,7 @@
 
   environment.systemPackages = with pkgs; [
     vim
+    whois
     wget
     git
     gh
