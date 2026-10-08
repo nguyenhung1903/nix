@@ -235,20 +235,11 @@
 	lidSwitchDocked = "ignore";
   };
 
-  system.autoUpgrade = {
-    enable = true;
-    flake = "/etc/nixos";
-    flags = [
-      "--update-input"
-      "nixpkgs"
-    ];
-
-    dates = "weekly";
-    randomizedDelaySec = "45min";
-
-    allowReboot = false;
-  };
-
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+  
   # Garbage Collector Setting
   nix.gc.automatic = true;
   nix.gc.dates = "daily";
