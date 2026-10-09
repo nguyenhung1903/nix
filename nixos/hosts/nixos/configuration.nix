@@ -157,7 +157,7 @@
     sof-firmware
     pavucontrol
     docker-compose
-    google-chrome
+    #google-chrome
     microsoft-edge
     vmware-workstation
     gparted
