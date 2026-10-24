@@ -10,6 +10,8 @@
     };
   };
 
+
+
   outputs = { self, nixpkgs, home-manager, ... }:
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -27,6 +29,7 @@
             home-manager.users.nguyenhung1903 =
               import ./home/nguyenhung1903/home.nix;
           }
+
         ];
       };
     };

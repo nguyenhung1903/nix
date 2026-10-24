@@ -15,7 +15,22 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  
+ 
+
+#  boot.kernelPackages = pkgs.linuxPackagesFor (
+#    pkgs.linux_6_18.override {
+#      argsOverride = rec {
+#	version = "6.18.56";
+#	modDirVersion = "6.18.56";
+#
+#	src = pkgs.fetchurl {
+#	  url = "https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-${version}.tar.xz";
+#	  hash = lib.fakeHash;
+#	};
+#      };
+#    }
+#  );
+ 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
