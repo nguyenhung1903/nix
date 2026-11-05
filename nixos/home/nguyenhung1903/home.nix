@@ -18,7 +18,8 @@
   ];
 
   home.packages = [
-    pkgs.google-chrome
+     pkgs.anydesk
+     pkgs.google-chrome
   ];
   # --------------------------------------------------
   # Home Manager

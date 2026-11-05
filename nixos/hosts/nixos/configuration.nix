@@ -121,16 +121,7 @@
     isNormalUser = true;
     description = "An Hung Nguyen";
     extraGroups = [ "networkmanager" "wheel" "audio" "docker" "input"];
-    packages = with pkgs; [
-    #  thunderbird
-	#"networkmanager"
-      	#"wheel"
-      	#"audio"
-      	#"docker"
-      	#"adbusers"
-      	#"libvirtd" # vm
-      	#"input"
-    ];
+    packages = with pkgs; [ ];
   };
 
   # Install firefox.
@@ -142,8 +133,8 @@
    enable = true;
   };
 
-  virtualisation.vmware.host.enable = true;
-  virtualisation.vmware.guest.enable = true;
+  #virtualisation.vmware.host.enable = true;
+  #virtualisation.vmware.guest.enable = true;
 
 
   boot.kernelModules = [ "kvm-intel" ]; 
@@ -172,14 +163,12 @@
     sof-firmware
     pavucontrol
     docker-compose
-    #google-chrome
     microsoft-edge
-    vmware-workstation
+    #vmware-workstation
     gparted
     zip
     unzip
     lazydocker
-    anydesk
 
 
     # ICON - GNOME
