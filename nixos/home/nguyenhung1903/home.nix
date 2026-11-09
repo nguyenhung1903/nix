@@ -18,7 +18,6 @@
   ];
 
   home.packages = [
-     pkgs.anydesk
      pkgs.google-chrome
   ];
   # --------------------------------------------------

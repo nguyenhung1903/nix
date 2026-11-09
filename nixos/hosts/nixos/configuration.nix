@@ -31,7 +31,7 @@
 #    }
 #  );
  
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "zbookg7"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -133,8 +133,8 @@
    enable = true;
   };
 
-  #virtualisation.vmware.host.enable = true;
-  #virtualisation.vmware.guest.enable = true;
+ # virtualisation.vmware.host.enable = true;
+  virtualisation.vmware.guest.enable = true;
 
 
   boot.kernelModules = [ "kvm-intel" ]; 
@@ -164,7 +164,7 @@
     pavucontrol
     docker-compose
     microsoft-edge
-    #vmware-workstation
+    vmware-workstation
     gparted
     zip
     unzip
