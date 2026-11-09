@@ -19,6 +19,7 @@
 
   home.packages = [
      pkgs.google-chrome
+     #pkgs.vscode
   ];
   # --------------------------------------------------
   # Home Manager

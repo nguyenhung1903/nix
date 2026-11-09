@@ -10,6 +10,7 @@
       	./hardware-configuration.nix
 	#./input-method.nix
     	./modules/zsh.nix
+        ./modules/anydesk.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -133,7 +134,7 @@
    enable = true;
   };
 
- # virtualisation.vmware.host.enable = true;
+  virtualisation.vmware.host.enable = true;
   virtualisation.vmware.guest.enable = true;
 
 
@@ -152,7 +153,8 @@
     stow
     tmux
     ghostty
-    vscode
+    #anydesk
+    #vscode
     neovim
     fastfetch
     home-manager

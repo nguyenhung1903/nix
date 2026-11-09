@@ -1,17 +1,22 @@
-{ config, pkgs, inputs, ... }:
+
+{ config, lib, pkgs, ... }:
 
 let
-  pkgsStable = import inputs.nixpkgs-stable {
-    system = pkgs.stdenv.hostPlatform.system;
+  anydesk = pkgs.anydesk.overrideAttrs (old: rec {
+    version = "8.0.4";
 
-    config = {
-      allowUnfree = true;
+    src = pkgs.fetchurl {
+      url = "https://download.anydesk.com/linux/anydesk-${version}-amd64.tar.gz";
+      hash = "sha256-fg3sLcushu5zDvsBakHLP/FRqhvauICx86rlpK4YkW8=";
     };
-  };
-
+  });
 in
 {
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [ "anydesk" ];
+
   environment.systemPackages = [
-    pkgsStable.anydesk
+    anydesk
   ];
 }
+
