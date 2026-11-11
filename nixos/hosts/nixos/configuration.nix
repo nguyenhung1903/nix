@@ -11,6 +11,7 @@
 	#./input-method.nix
     	./modules/zsh.nix
         ./modules/anydesk.nix
+    	#./modules/vscode.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -153,8 +154,6 @@
     stow
     tmux
     ghostty
-    #anydesk
-    #vscode
     neovim
     fastfetch
     home-manager
@@ -171,7 +170,6 @@
     zip
     unzip
     lazydocker
-
 
     # ICON - GNOME
     gnome-tweaks

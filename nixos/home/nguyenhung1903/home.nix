@@ -15,6 +15,7 @@
   imports = [
     ./obs-nvidia.nix
     ./zoom.nix
+    ./vscode.nix
   ];
 
   home.packages = [
